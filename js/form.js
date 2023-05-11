@@ -35,6 +35,7 @@ closeButton.addEventListener('click', (evt) => {
   closeWindow();
 });
 
+
 function cleanForm() {
   document.querySelector('#upload-file').value = '';
   document.querySelector('.text__hashtags').value = '';

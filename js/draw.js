@@ -19,7 +19,8 @@ const createPicture = function (data) {
 export const drawPictures = function (data) {
   const res = new DocumentFragment();
   for (let i = 0; i < data.length; i++) {
-    res.append(createPicture(data[i]));
+    const newPic = createPicture(data[i]);
+    res.append(newPic);
     pictures.append(res);
   }
 };
