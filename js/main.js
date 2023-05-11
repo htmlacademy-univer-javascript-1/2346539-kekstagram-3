@@ -1,29 +1,10 @@
-function getRandomInt(min, max) {
-    return Math.floor(min + Math.random() * (max - min));
-  }
+import './drawThumbnails.js';
+import './bigPicture.js';
+import './validetion.js';
+import './loaderForm.js';
+import './addEffect.js';
+import {drawThumbnails} from './drawThumbnails.js';
+import {showAlert} from './util.js';
+import {getData} from './api.js';
 
-  const button = document.querySelector('.img-upload__label');
-  button.onclick = function() {
-    getRandomInt(1, 100);
-    checkCommentLength('sdgs', 3);
-    generateContent(25);
-  };
-
-  function generateContent(size) {
-    const content = [];
-    for(let i = 0; i < size - 1; i++) {
-      content[i] = generateObj(i + 1);
-    }
-    return content;
-  }
-
-  function generateObj(id) {
-    const newObj = {
-      id: id,
-      url: `photos/${id}.jpg`,
-      description: '',
-      likes: getRandomInt(15, 200),
-      comments: getRandomInt(0, 200)
-    };
-    return newObj;
-  }
+getData(drawThumbnails,showAlert);
