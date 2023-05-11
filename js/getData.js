@@ -1,4 +1,4 @@
-import {getRandomInt} from './util.js';
+import {getRandomInt} from './utl.js';
 
 export function generateContent(size) {
   const content = [];
