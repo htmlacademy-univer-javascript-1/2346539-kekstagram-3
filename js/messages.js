@@ -23,14 +23,14 @@ const hideErrorMessage = () => {
 
 
 const hideSuccessMessage = () => {
-  const successMessage = document.querySelector('.success');
-  document.querySelector('body').removeChild(successMessage);
+  const message = document.querySelector('.success');
+  document.querySelector('body').removeChild(message);
   document.removeEventListener('keydown', successButtonListener);
 };
 
 const showErrorMessage = () => {
-  const template = document.querySelector('#error');
-  const clone = template.content.cloneNode(true);
+  const temp = document.querySelector('#error');
+  const clone = temp.content.cloneNode(true);
   document.querySelector('body').append(clone);
   document
     .querySelector('.error__button')
@@ -39,8 +39,8 @@ const showErrorMessage = () => {
 };
 
 const showSuccessMessage = () => {
-  const template = document.querySelector('#success');
-  const clone = template.content.cloneNode(true);
+  const temp = document.querySelector('#success');
+  const clone = temp.content.cloneNode(true);
   document.querySelector('body').append(clone);
   document
     .querySelector('.success__button')
