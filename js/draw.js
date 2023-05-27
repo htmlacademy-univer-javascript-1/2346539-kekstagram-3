@@ -1,26 +1,23 @@
-const pictureTemplate = document.querySelector('#picture').content;
-const pictureExp = pictureTemplate.querySelector('.picture');
-const pictures = document.querySelector('.pictures');
+const picturePattern = document.querySelector('#picture');
+const block = document.querySelector('.pictures');
 
-const createPicture = function (data) {
-  const newPic = pictureExp.cloneNode(true);
+export const drawPicture = (elements) => {
+  const pictureFragment = document.createDocumentFragment();
+  elements.forEach((element) => {
+    const pattern = picturePattern.cloneNode(true).content;
+    const img = pattern.querySelector('.picture__img');
+    const likes = pattern.querySelector('.picture__likes');
+    const comments = pattern.querySelector('.picture__comments');
 
-  const newPicImg = newPic.querySelector('.picture__img');
-  newPicImg.src = data.url;
-  const newPicInfo = newPic.querySelector('.picture__info');
-  const newPicComments = newPicInfo.querySelector('.picture__comments');
-  newPicComments.textContent = data.comments;
-  const newPicLikes = newPicInfo.querySelector('.picture__likes');
-  newPicLikes.textContent = data.likes;
+    img.src = element.url;
+    likes.textContent = element.likes;
+    comments.textContent = element.comments;
 
-  return newPic;
+    pictureFragment.appendChild(pattern);
+  });
+
+  block.appendChild(pictureFragment);
 };
 
-export const drawPictures = function (data) {
-  const res = new DocumentFragment();
-  for (let i = 0; i < data.length; i++) {
-    const newPic = createPicture(data[i]);
-    res.append(newPic);
-    pictures.append(res);
-  }
-};
+
+drawPicture();
