@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import { setupListeners, removeListeners} from './effects.js';
+import { setup, remove} from './effects.js';
 import { increase, decrease } from './scale.js';
 
 const imageForm = document.querySelector('.img-upload__form');
@@ -28,7 +28,7 @@ function openEditWindow() {
   decreaseButton.addEventListener('click', (evt) => {
     decrease(evt);
   });
-  setupListeners();
+  setup();
 }
 
 export function closeEditWindow() {
@@ -37,11 +37,11 @@ export function closeEditWindow() {
   document.removeEventListener('keydown', onPopupEscKeydown);
   img.classList.remove(...img.classList);
   img.classList.add('effects__preview--none');
-  cleanForm();
-  removeListeners();
+  clean();
+  remove();
 }
 
-function cleanForm() {
+function clean() {
   document.querySelector('#upload-file').value = '';
   document.querySelector('.text__hashtags').value = '';
   document.querySelector('.text__description').value = '';

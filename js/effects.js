@@ -21,11 +21,11 @@ const addListener = (element) => {
   }
 };
 
-const setupListeners = () => {
+const setup = () => {
   radioButtons.forEach((element) => addListener(element));
 };
 
-const removeListeners = () => {
+const remove = () => {
   radioButtons.forEach((element) => {
     if (element.value === 'none') {
       element.removeEventListener('click', removeFilter);
@@ -35,4 +35,4 @@ const removeListeners = () => {
   });
 };
 
-export {setupListeners, removeListeners};
+export {setup, remove};

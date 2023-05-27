@@ -1,7 +1,7 @@
 import { showErrorFetch } from './error.js';
 import { closeEditWindow } from './form.js';
 import { showErrorMessage, showSuccessMessage } from './messages.js';
-import { showPicturesFromObjects } from './createPicture.js';
+import { showPictureFrom } from './createPicture.js';
 
 
 function get () {
@@ -11,7 +11,7 @@ function get () {
         return response.json();
       }
     })
-    .then((response) => showPicturesFromObjects(response))
+    .then((response) => showPictureFrom(response))
     .catch(() => showErrorFetch());
 }
 

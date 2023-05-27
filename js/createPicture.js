@@ -22,15 +22,15 @@ const createPictureFromObject = (object) => {
   pictureLikes.append(object.likes);
   pictureLikes.classList.add('picture__likes');
 
-  pictureInfo.classList.add('picture__info');
   pictureInfo.append(pictureComments, pictureLikes);
+  pictureInfo.classList.add('picture__info');
 
   pictureParent.append(pictureImage, pictureInfo);
 
   return pictureParent;
 };
 
-export const showPicturesFromObjects = (objects) => {
+export const showPictureFrom = (objects) => {
   const pictures = new DocumentFragment();
 
   pictures.append(...objects.map((object) => createPictureFromObject(object)));
